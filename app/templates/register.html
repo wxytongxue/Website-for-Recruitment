@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+{% extends "base.html" %}
+{% block head %}
+{{super()}}
+{% endblock %}
+
+{% block body %}
+{{super()}}
+{% import "bootstrap/wtf.html" as wtf %}
+<div style="margin:50px auto; width:20%">
+<h2>注册</h2>
+<hr>
+<form class="form" method="POST">
+    {{ form.hidden_tag() }}
+    {{ wtf.form_field(form.name) }}
+    {{ wtf.form_field(form.email) }}
+    {{ wtf.form_field(form.password) }}
+    {{ wtf.form_field(form.password_q) }}
+    {{ wtf.form_field(form.submit) }}
+</form>
+</div>
+{% endblock %}
+</html>
