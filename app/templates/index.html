@@ -1,14 +1,236 @@
-<!DOCTYPE html>
-<html>
-{% import "bootstrap/wtf.html" as wtf %}
+{% extends "base.html" %} {% block body %} {{super()}}
+<div class="slider">
+    <ul class="slides">
+        <li>
+            <img src="../static/images/1.jpg">
+            <!-- random image -->
+            <div class="caption center-align">
+                <h3>This is our big dream!</h3>
+                <h5 class="light grey-text text-lighten-3">Here's our small dream.</h5>
+            </div>
+        </li>
+        <li>
+            <img src="../static/images/2.jpg">
+            <!-- random image -->
+            <div class="caption left-align">
+                <h3>Go Far Away</h3>
+                <h5 class="light grey-text text-lighten-3">Here's your dream.</h5>
+            </div>
+        </li>
+        <li>
+            <img src="../static/images/3.jpg">
+            <!-- random image -->
+            <div class="caption right-align">
+                <h3>Down to earth</h3>
+                <h5 class="light grey-text text-lighten-3">Here's your dream.</h5>
+            </div>
+        </li>
+        <li>
+            <img src="../static/images/5.jpg">
+            <!-- random image -->
+            <div class="caption center-align">
+                <h3>This is our distance</h3>
+                <h5 class="light grey-text text-lighten-3">Here's your distance.</h5>
+            </div>
+        </li>
+    </ul>
+</div>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.slider').slider({
+            full_width: true,
+            Interval: 20
+        });
+    });
+</script>
+<!-- 职位展示 -->
 
-{% block title %}Flasky{% endblock %}
-{% block page_content %}
-<div class="page-header">
-  <h1>Hello,{% if name %}{{name}}{% else %}Stranger{% endif %}</h1>
+<div class="row">
+    <h3 class="col s9 center">招聘职位</h3>
+    <div class="col s2">
+        <ul class="section table-of-contents tuding">
+            <li><a href="#introduction">招聘信息</a></li>
+            <li><a href="#structure">企业展示</a></li>
+            <li><a href="#initialization">高校高校</a></li>
+        </ul>
+    </div>
 </div>
-<div class="col-md-4">
-{{ wtf.quick_form(form) }}
+<!-- card -->
+{% for employ in employment %}
+<div class="row ">
+    <div class="col s3">
+        <div class="card blue-grey darken-1">
+            <div class="card-content white-text">
+                <span class="card-title " style="color:#ffab40">{{employ[0].job_name}}</span>
+                <p>{{employ[0].job_desc}}</p>
+            </div>
+            <div class="card-action">
+                <a href="{{employ[0].job_link}}">查看</a>
+                <a href='#'></a>
+            </div>
+        </div>
+    </div>
+    <div class="col s3">
+        <div class="card blue-grey darken-1">
+            <div class="card-content white-text">
+                <span class="card-title" style="color:#ffab40">{{employ[1].job_name}}</span>
+                <p>{{employ[1].job_desc}}</p>
+            </div>
+            <div class="card-action">
+                <a href="{{employ[1].job_link}}">查看</a>
+                <a href='#'>This is a link</a>
+            </div>
+        </div>
+    </div>
+    <div class="col s3">
+        <div class="card blue-grey darken-1">
+            <div class="card-content white-text">
+                <span class="card-title" style="color:#ffab40">{{employ[2].job_name}}</span>
+                <p>{{employ[2].job_desc}}</p>
+            </div>
+            <div class="card-action">
+                <a href="{{employ[2].job_link}}">This is a link</a>
+                <a href='#'>This is a link</a>
+            </div>
+        </div>
+    </div>
 </div>
+{% endfor %}
+<div class="row">
+  <div class="col s9 center ">
+    <a href="#"><h5>More</h5></a>
+  </div>
+</div>
+<!-- 企业展示 -->
+<div class="row">
+    <h3 class="col s9 center">企业展示</h3>
+</div>
+{% for co in company %}
+<div class="row">
+  <div class="col s3">
+      <div class="card medium">
+          <div class="card-image">
+              <img src="../static/images/{{co[0].co_img}}">
+              <span class="card-title" style="color:#ff9800">{{co[0].co_name}}</span>
+          </div>
+          <div class="card-content">
+              <p>{{co[0].co_desc}}</p>
+          </div>
+          <div class="card-action">
+              <a href="{{co[0].co_link}}">查看</a>
+              <a href='#'>This is a link</a>
+          </div>
+      </div>
+  </div>
+
+  <div class="col s3">
+      <div class="card medium">
+          <div class="card-image">
+              <img src="../static/images/{{co[1].co_img}}">
+              <span class="card-title" style="color:#ff9800">{{co[1].co_name}}</span>
+          </div>
+          <div class="card-content">
+              <p>{{co[1].co_desc}}</p>
+          </div>
+          <div class="card-action">
+              <a href="{{co[1].co_link}}">查看</a>
+              <a href='#'>This is a link</a>
+          </div>
+      </div>
+  </div>
+
+    <div class="col s3">
+        <div class="card medium">
+            <div class="card-image">
+                <img src="../static/images/{{co[2].co_img}}">
+                <span class="card-title" style="color:#ff9800">{{co[2].co_name}}</span>
+            </div>
+            <div class="card-content">
+                <p>{{co[2].co_desc}}</p>
+            </div>
+            <div class="card-action">
+                <a href="{{co[2].co_link}}">查看</a>
+                <a href='#'>This is a link</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endfor %}
+<div class="row">
+  <div class="col s9 center ">
+    <a href="#"><h5>More</h5></a>
+  </div>
+</div>
+<!-- 高校展示 -->
+<div class="row">
+    <h3 class="col s9 center">高校展示</h3>
+</div>
+{% for sc in school %}
+<div class="row">
+  <div class="col s3">
+      <div class="card large">
+          <div class="card-image">
+              <img src="../static/images/{{sc[0].sc_img}}">
+              <span class="card-title" style="color:#ff9800">{{sc[0].sc_name}}</span>
+          </div>
+          <div class="card-content">
+              <p>{{sc[0].sc_desc}}</p>
+          </div>
+          <div class="card-action">
+              <a href="{{sc[0].sc_link}}">查看</a>
+              <a href='#'>This is a link</a>
+          </div>
+      </div>
+  </div>
+
+  <div class="col s3">
+      <div class="card large">
+          <div class="card-image">
+              <img src="../static/images/{{sc[1].sc_img}}">
+              <span class="card-title" style="color:#ff9800">{{sc[1].sc_name}}</span>
+          </div>
+          <div class="card-content">
+              <p>{{sc[1].sc_desc}}</p>
+          </div>
+          <div class="card-action">
+              <a href="{{sc[1].sc_link}}">查看</a>
+              <a href='#'>This is a link</a>
+          </div>
+      </div>
+  </div>
+
+    <div class="col s3">
+        <div class="card large">
+            <div class="card-image">
+                <img src="../static/images/{{sc[2].sc_img}}">
+                <span class="card-title" style="color:#ff9800">{{sc[2].sc_name}}</span>
+            </div>
+            <div class="card-content">
+                <p>{{sc[2].sc_desc}}</p>
+            </div>
+            <div class="card-action">
+                <a href="{{sc[2].sc_link}}">查看</a>
+                <a href='#'>This is a link</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endfor %}
+<div class="row">
+  <div class="col s9 center ">
+    <a href="#"><h5>More</h5></a>
+  </div>
+</div>
+
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.tuding .section').pushpin({
+            top: $('.tuding').offset().top
+        });
+    });
+</script>
+
 {% endblock %}
-</html>

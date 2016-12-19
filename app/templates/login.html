@@ -1,17 +1,9 @@
-<!DOCTYPE html>
-<html>
-
 {% extends "base.html" %}
-{% block head %}
-{{super()}}
-{% endblock %}
-
+{% import "bootstrap/wtf.html" as wtf %}
 {% block body %}
 {{super()}}
-{% import "bootstrap/wtf.html" as wtf %}
 <div style="margin:50px auto; width:20%">
-<h2>登录</h2>
-<hr>
+<h5>登录</h5 class="">
 <form class="form" method="POST">
     {{ form.hidden_tag() }}
     {{ wtf.form_field(form.email) }}
@@ -19,5 +11,10 @@
     {{ wtf.form_field(form.submit) }}
 </form>
 </div>
+<div class="row">
+
+</div>
+<div class="row">
+
+</div>
 {% endblock %}
-</html>

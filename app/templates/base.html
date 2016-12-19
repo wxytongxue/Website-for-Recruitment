@@ -1,73 +1,71 @@
-{% block head %}
 <!DOCTYPE html>
 <html>
 <head>
-  <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
-  <!-- 新 Bootstrap 核心 CSS 文件 -->
-  <link rel="stylesheet" href="/static/css/bootstrap.css">
-
-
-  <!-- 可选的Bootstrap主题文件（一般不用引入） -->
-  <!-- <link rel="stylesheet" href="/static/css/bootstrap-theme.css"> -->
-
-  <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
-  <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
-
-  <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-  <script src="/static/js/bootstrap.min.js"></script>
-  <link href="/static/css/top.css" type="text/css" rel="stylesheet" />
-  <script type="text/javascript" src="/static/js/top.js"></script>
+    <!--Import materialize.css-->
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link href="../static/css/materialize.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../static/css/style.css" rel="stylesheet">
 </head>
-{% endblock %}
+<body>
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="../static/js/materialize.js"></script>
+    <!-- start  -->
+
+    <!-- Dropdown Structure -->
+    <ul id="dropdown1" class="dropdown-content">
+        <li><a href="#!">编辑</a></li>
+        <li><a href="#!">注销</a></li>
+        <li><a href="#!">管理</a></li>
+        <li class="divider"></li>
+        <li><a href="/quit">退出</a></li>
+    </ul>
+    <nav>
+        <div class="nav-wrapper  teal accent-3">
+            <a href="/" class="left"><i class="material-icons">whatshot</i></a>
+            <a href="/" class="brand-logo ">聘你</a>
+            <ul class="right hide-on-med-and-down">
+                <!-- <li><a href="badges">标签</a></li> -->
+                <li><a href="#"><i class="material-icons">search</i></a></li>
+                <!-- Dropdown Trigger -->
+                {% if not session.login %}
+                <li><a href="/login">登录</a></li>
+                <li><a href="/register">注册</a></li>
+                {% else %}
+              <li><a class="dropdown-button" href="#!" data-activates="dropdown1">{{session.user}}<i class="material-icons  right">add</i></a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
 
 {% block body %}
-<body>
-<nav class="navbar navbar-default " role="navigation">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header ">
-      <a class="navbar-brand" href="#">
-        <span class="glyphicon glyphicon-fire navbar-band"></span>
-        <span>聘你</span>
-      </a>
-    </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-      <form class="navbar-form navbar-left" role="search" align="center">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="职位">
-        </div>
-        <button type="submit" class="btn btn-info">Search</button>
-      </form>
-      <ul class="nav navbar-nav navbar-right ">
-{% if sign %}
-        <li><a href="/login">sign in</a></li>
-        <li><a href="/register">sign up</a></li>
-
-
-{% else %}
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{name}}<span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Edit</a></li>
-            <li><a href="#">update</a></li>
-            <li><a href="#">log off</a></li>
-            <li class="divider"></li>
-            <li><a href="#">sign out</a></li>
-          </ul>
-        </li>
-{% endif %}
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-
-<!-- the sample type -->
-<a href="#" onclick="gotoTop();return false;" class="totop"></a>
-
-</div>
-</body>
 {% endblock %}
+    <!-- foot -->
+
+    <footer class="page-footer teal accent-3">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">聘你</h5>
+                    <p class="grey-text text-lighten-4">We provide you with the most comprehensive, best quality position, look forward to your joining!</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Links</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="http://www.lagou.com">拉钩</a></li>
+                        <li><a class="grey-text text-lighten-3" href="http://51job.com">51job</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                © 2016 Copyright WX
+                <a class="grey-text text-lighten-4 right" href="#!">More</a>
+            </div>
+        </div>
+    </footer>
+</body>
 </html>
