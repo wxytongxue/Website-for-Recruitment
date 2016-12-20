@@ -44,8 +44,8 @@ def quit():
 
 @main.route('/manage/', methods=['GET', 'POST'])
 def index():
-    return render_template('manage.html',count=count)
-    #return redirect(url_for('main.complete'))
+    #return render_template('manage.html',count=count)
+    return redirect(url_for('main.complete'))
     # if request.method == 'POST':
     #     body = request.form.get('item')
     #     id = request.form.get('category')
