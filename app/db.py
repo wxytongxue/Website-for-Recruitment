@@ -26,3 +26,5 @@ for i in range(3):
     for j in range(3):
         temp.append(di)
     school.append(temp)
+
+count=[1,2,3,4,5,6,7]

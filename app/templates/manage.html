@@ -1,0 +1,154 @@
+{% extends "base.html" %}
+{% block body %}
+<script src="../static/js/manage.js" type="text/javascript"></script>
+<div class="row">
+    <div class="col s12">
+        <h3 class="center-align">综合管理系统</h3>
+        <hr style="width:20%">
+    </div>
+     <div class="col s12 center-align ">
+      <p class="user-show" style="font-size:20px;font-weight:bold;">welcome to {{session.user}}</p>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<div class="row">
+    <div class="col s12 m4 l4">
+        <div class="right-align nav-button">
+            <a href="#" class="waves-effect waves-light btn blue center-align">
+                <i class="material-icons left">email</i> 资格审核{{count[0]}}
+            </a>
+            <br>
+            <br>
+            <a href="#" class="waves-effect waves-light btn green center-align">
+                <i class="material-icons left">done</i> 已经完成{{count[1]}}
+            </a>
+            <br>
+            <br>
+            <a href="#" class="waves-effect waves-light btn red center-align">
+                <i class="material-icons left">event</i> 招聘发布{{count[2]}}
+            </a>
+            <br>
+            <br>
+            <a href="#" class="waves-effect waves-light btn orange center-align">
+                <i class="material-icons left">input</i> 简历接收{{count[3]}}
+            </a>
+            <br>
+            <br>
+            <a href="#" class="waves-effect waves-light btn brown center-align">
+                <i class="material-icons left">dashboard</i> 备案查看{{count[4]}}
+            </a>
+            <br>
+            <br>
+            <a href="#" class="waves-effect waves-light btn green accent-3 center-align sa-btn">
+                <i class="material-icons left">dns</i> 统计查看{{count[5]}}
+            </a>
+            <br>
+            <br>
+            <a href="#" class="waves-effect waves-light btn pink accent-3 center-align">
+                <i class="material-icons left">accessibility</i> 学生发布 {{count[6]}}
+            </a>
+        </div>
+    </div>
+    <div class="col s12 m8 l6">
+        <span class="category-name ">完成</span>
+        <div>
+            <p class="card-panel hoverable" id="item1">
+
+                <a class="item-done left" href="/done/235" title="done?"><i class="material-icons left">done</i></a>
+                <span>123</span>
+
+                <!--a class="move right"><i class="material-icons">view_headline</i></a-->
+                <a class="right delete-item" href="/delete-item/235" title="delete it?"><i class="material-icons left">clear</i></a>
+                <a class="edit-btn right" id="1" href="#!"><i class="material-icons left">mode_edit</i></a>
+            </p>
+            <form class="card-panel edit-form" id="form1" action="/edit-item/235" method="POST">
+                <input placeholder="What to do next?" name="body" type="text" class="validate" value="123">
+                <a class="waves-effect waves-light btn confirm-btn" href="#!" onclick="document.getElementById('form1').submit()">确定</a>
+                <a class="waves-effect waves-light btn cancel-btn" href="#!">取消</a>
+            </form>
+        </div>
+        <!-- ecahrt -->
+        <div style="width: 620px;height:400px; display:none;" id="main"></div>
+        <script>
+            $(document).ready(function() {
+                $(".sa-btn").click(function() {
+                    $("#main").show();
+                    $("#item1").hide();
+                });
+
+            });
+        </script>
+        <script type="text/javascript">
+            // 基于准备好的dom，初始化echarts实例
+            var myChart = echarts.init(document.getElementById('main'));
+
+            // 指定图表的配置项和数据
+            option = {
+                title: {
+
+                    text: ''
+                },
+                tooltip: {
+                    trigger: 'axis'
+                },
+                legend: {
+                    data: ['2014届', '2013届', '2012届', '2011届', '2010届']
+                },
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    containLabel: true
+                },
+                toolbox: {
+                    feature: {
+                        saveAsImage: {}
+                    }
+                },
+                xAxis: {
+                    type: 'category',
+                    boundaryGap: false,
+                    data: ['一月', '二月', '三月', '四月', '五月', '六月', '七月']
+                },
+                yAxis: {
+                    type: 'value'
+                },
+                series: [{
+                    name: '2014届',
+                    type: 'line',
+                    stack: '总量',
+                    data: [120, 132, 101, 134, 90, 230, 210]
+                }, {
+                    name: '2013届',
+                    type: 'line',
+                    stack: '总量',
+                    data: [220, 182, 191, 234, 290, 330, 310]
+                }, {
+                    name: '2012届',
+                    type: 'line',
+                    stack: '总量',
+                    data: [150, 232, 201, 154, 190, 330, 410]
+                }, {
+                    name: '2011届',
+                    type: 'line',
+                    stack: '总量',
+                    data: [320, 332, 301, 334, 390, 330, 320]
+                }, {
+                    name: '2010届',
+                    type: 'line',
+                    stack: '总量',
+                    data: [820, 932, 901, 934, 1290, 1330, 1320]
+                }]
+            };
+
+
+            // 使用刚指定的配置项和数据显示图表。
+            myChart.setOption(option);
+        </script>
+    </div>
+</div>
+<br>
+<br>
+<br> {% endblock %}

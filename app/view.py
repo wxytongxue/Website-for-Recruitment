@@ -1,15 +1,15 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-from flask import Flask,url_for,render_template,request,Blueprint,flash,session
+from flask import Flask,url_for,render_template,request,Blueprint,flash,session,redirect
 from db import *
 from form import *
-from models import User
+from models import User,Item,Category
 from ext import db
 
 main = Blueprint('main',__name__)
 
 @main.route('/',methods=['GET','POST'])
-def index():
+def index_p():
     return render_template('index.html',employment=employment,company=company,school=school)
 @main.route('/login',methods=['GET','POST'])
 def login():
@@ -39,3 +39,27 @@ def quit():
     session['login']=False
     session['user']=''
     return render_template('index.html',employment=employment,company=company,school=school)
+
+# test
+
+@main.route('/manage/', methods=['GET', 'POST'])
+def index():
+    return render_template('manage.html',count=count)
+    #return redirect(url_for('main.complete'))
+    # if request.method == 'POST':
+    #     body = request.form.get('item')
+    #     id = request.form.get('category')
+    #     category = Category.query.get_or_404(id)
+    #     item = Item(body=body, category=category)
+    #     db.session.add(item)
+    #     return redirect(url_for('main.category',id))
+    #
+    # return redirect(url_for('main.category', id=1))
+@main.route('/manage/complete/', methods=['GET', 'POST'])
+def complete():
+    return render_template('manage.html',count=count)
+
+# @main.route('/manage/verify/', methods=['GET','POST'])
+# def verify():
+#     g['verify']=True
+#     return  render_template('manage_t.html',count=count)
