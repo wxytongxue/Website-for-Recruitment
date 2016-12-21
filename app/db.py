@@ -27,4 +27,34 @@ for i in range(3):
         temp.append(di)
     school.append(temp)
 
-count=[1,2,3,4,5,6,7]
+# count=[2,1,2,3,4,5,6,7]
+r1={'id':1,'info':'北京大学 12'}
+r2={'id':2,'info':'清华大学 13'}
+r3={'id':3,'info':'浙江大学 14'}
+c1={'id':4,'info':'阿里巴巴 12'}
+c2={'id':5,'info':'腾讯科技 12'}
+c3={'id':6,'info':'百度科技 12'}
+resumes=[]
+completes=[]
+verifys=[]
+records=[]
+verifys.append(r1)
+verifys.append(r2)
+verifys.append(r3)
+completes.append(c1)
+completes.append(c2)
+completes.append(c3)
+resumes.append(r1)
+resumes.append(r2)
+resumes.append(r3)
+records.append(r1)
+records.append(r2)
+records.append(r3)
+
+news=1
+info_1={'id':1,'in':'pass'}
+info_2={'id':2,'in':'nopass'}
+
+information=[]
+information.append(info_1)
+information.append(info_2)
