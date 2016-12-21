@@ -89,29 +89,29 @@ def release():
 
 @main.route('/job/<int:id>/',methods=['GET','POST'])
 def job(id):
-    return render_template('job.html')
+    return render_template('job.html',jobdesc=jobdesc,companydesc=companydesc)
 
 @main.route('/school/<int:id>/',methods=['GET','POST'])
-def school(id):
+def school_t(id):
     return render_template('school.html')
 
 @main.route('/company/<int:id>/',methods=['GET','POST'])
-def company(id):
-    return render_template('company.html') 
+def company_t(id):
+    return render_template('company.html')
 
 
 
 #the view for item
-@main.route('/done/<int:id>', methods=['GET', 'POST'])
+@main.route('/done/<int:id>/', methods=['GET', 'POST'])
 def done(id):
     return render_template('manage.html')
 
 
-@main.route('/delete-item/<int:id>', methods=['GET', 'POST'])
+@main.route('/delete-item/<int:id>/', methods=['GET', 'POST'])
 def delete_item(id):
     return render_template('manage.html')
 
-@main.route('/edit-item/<int:id>', methods=['GET', 'POST'])
+@main.route('/edit-item/<int:id>/', methods=['GET', 'POST'])
 def edit_item(id):
     return render_template('manage.html')
 
@@ -120,7 +120,7 @@ def edit_item(id):
 def suggest():
     return render_template('manage.html')
 
-@main.route('/read-done/<int:id>', methods=['GET', 'POST'])
+@main.route('/read-done/<int:id>/', methods=['GET', 'POST'])
 def read_done(id):
     session['news']=session['news']-1
     for s in information:
@@ -128,3 +128,8 @@ def read_done(id):
             information.remove(s)
     session['count'][0]=session['count'][0]-1
     return redirect(url_for('main.info_email'))
+
+@main.route('/hand-in/<int:id>/',methods=['GET','POST'])
+def han_in(id):
+    g.toast=True
+    return render_template('job.html',jobdesc=jobdesc,companydesc=companydesc)

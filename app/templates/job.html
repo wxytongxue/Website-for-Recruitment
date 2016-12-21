@@ -1,4 +1,123 @@
 {% extends "base.html" %} {% block body %}
 
-
+<p class="center-align category-name">职位介绍</p>
+<div class="row">
+  <div class="col s4 m6 l8">
+    <div class="row">
+      <h4 class="center-align">
+        {{jobdesc.name}}
+      </h4>
+    </div>
+    <hr>
+    <div class="row">
+      <h4 class="salary center-align">{{jobdesc.salary}}/{{jobdesc.address}}/{{jobdesc.record}}</h4>
+      <h5>职位描述:</h5>
+    </div>
+    <div class="row">
+      <div class="col offset-s1"
+      <p>
+岗位职责：<br>
+<br>
+1. 能够根据要求开发功能性模块，完成基于Java语言的软件开发任务；
+<br>
+<br>
+2. 深入理解C/S、B/S架构的网络模式，并能够完成C/S、B/S架构的功能软件开发；
+<br>
+<br>
+3. 根据客户需求，编写相应项目文档，并根据文档进行项目开发 ；
+<br>
+<br>
+4. 能够根据文档，对已有软件进行维护、升级。
+<br>
+<br>
+任职要求：
+<br>
+<br>
+1. 计算机及相关专业，全日制大学本科及以上学历；
+<br>
+<br>
+2. 熟练掌握Java/J2EE语言，编程风格规范；
+<br>
+<br>
+3. 熟练使用Struts2.0框架，对于Spring框架有一定了解；
+<br>
+<br>
+4. 熟练掌握JSP，HTML，JavaScript，CSS语言，了解AJAX,能独立开发B/S前台页面；
+<br>
+<br>
+5. 熟悉Java网络通讯编程，Socket/Webservice/HttpClient；JSon/XML/SOAP；
+<br>
+<br>
+6. 熟练使用JDBC或Hibernate完成高效数据库编程。
+</p>
+</div>
+    </div>
+    <div class="row">
+      <h5>工作地址:</h5>
+    </div>
+    <div class="row">
+      <div class="col offset-s1">
+<h6 class="salary">
+   张江高科软件园博霞路50号402室
+</h6>
+</div>
+    </div>
+  </div>
+  <div class="col s3 m4 l4">
+  <br><br><br><br><br><br>
+    <div class="row">
+      <div class="col s8">
+        <a href="/hand-in/{{jobdesc.id}}/" class="btn green right" id="hand">投简历<i class="material-icons right">send</i></a>
+      </div>
+      {% if g.toast %}
+      <script type="text/javascript">
+          Materialize.toast('投递成功!', 4000)
+      </script>
+      {% endif %}
+    </div>
+    <br><br>
+    <hr style="width:60%">
+    <br><br>
+    <div class="row">
+      <div class="col s6">
+        <img src="../../static/images/co_{{companydesc.img}}.jpg" alt="" style="width:100px;heght:100px;" class="right">
+      </div>
+      <div class="col s6">
+        <br><br><br>
+        <h5>{{companydesc.name}}<i class="material-icons" style="color:#1de9b6;">view_quilt</i></h5>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col offset-s3">
+        <a href="/manage/info-email/" class="waves-effect waves-light center-align" style="color:#1de9b6;">
+            <i class="material-icons left">dashboard</i>{{companydesc.category}}
+        </a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col offset-s3">
+        <a href="/manage/info-email/" class="waves-effect waves-light center-align" style="color:#1de9b6;">
+            <i class="material-icons left">account_balance</i>{{companydesc.nature}}
+        </a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col offset-s3">
+        <a href="/manage/info-email/" class="waves-effect waves-light center-align" style="color:#1de9b6;">
+            <i class="material-icons left">accessibility</i> {{companydesc.person}}人
+        </a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col offset-s3">
+        <a href="/manage/info-email/" class="waves-effect waves-light center-align" style="color:#1de9b6;">
+            <i class="material-icons left">link</i>{{companydesc.link}}
+        </a>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+<script type="text/javascript" src="{{url_for('static', filename='js/manage.js')}}"></script>
 {% endblock %}

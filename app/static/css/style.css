@@ -25,7 +25,12 @@ footer a:hover {
 .move {
     cursor: move;
 }
-
+.salary{
+  color:red;
+}
+.jobadd{
+  color:red;
+}
 @media (max-width: 600px) {
     .nav-button {
         display: none;

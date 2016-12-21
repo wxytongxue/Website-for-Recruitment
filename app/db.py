@@ -58,3 +58,5 @@ info_2={'id':2,'in':'nopass'}
 information=[]
 information.append(info_1)
 information.append(info_2)
+jobdesc={'id':'1','name':'Java工程师','salary':'30k-40k','address':'上海','record':'本科','desc':''}
+companydesc={'id':'1','name':'快看公司','img':'2','category':'移动互联网','nature':'上市公司','person':'500-2000','link':'http://www.flaginfo.com.cn'}

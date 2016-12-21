@@ -10,6 +10,11 @@ $(document).ready(function() {
       });
     });
 
+
+$("#hand").click(function() {
+    Materialize.toast('投递成功!', 4000)
+  });
+
   })
 
   // echarts
