@@ -43,7 +43,7 @@ for i in range(3):
 
 for i in range(3):
     temp=[]
-    di={'sc_name':"清华大学",'sc_desc':"1、 参与项目需求分析，负责功能模块详细设计，包括软件架构设计；2、 编写符合软件工程规范的系统分析文档及详细设计文档；3、 搭建系统服务器环境，完成系统框架和核心代码",'sc_link':"www.baidu.com",'sc_img':"sc_{}.jpg".format(i)}
+    di={'sc_name':"清华大学",'sc_desc':"清华大学（Tsinghua University），简称清华，由中华人民共和国教育部直属，中央直管副部级建制，位列“211工程”、“985工程”，入选”珠峰计划“、”2011计划“、”111计划“、”卓越工程师教育培养计划“、”卓越法律人才教育培养计划“、”卓越医生教育培养计划“，为九校联盟、东亚研究型大学协会、环太平洋大学联盟、清华大学—剑桥大学—麻省理工学院低碳能源大学联盟成员",'sc_link':"www.baidu.com",'sc_img':"sc_3.jpg"}
     for j in range(3):
         temp.append(di)
     school.append(temp)
