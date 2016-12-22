@@ -62,7 +62,7 @@ companydesc={'id':'1','name':'快看公司','img':'2','category':'移动互联�
 
 
 company_dis={'id':1,'name':'快看','desc':'企业移动互联领头羊，新三板上市公司，给予员工期权激励的创新潜力股',\
-'job_count':'55','res_time':'2016年12月22日'}
+'job_count':'55','res_time':'2016年12月22日','img':'2'}
 
 job_provide = []
 job_add={'id':1,'name':'大数据工程师','address':'上海','pu_time':'2016.12.21','salary':'30k-40k','experience':'3年-5年',\
@@ -70,4 +70,4 @@ job_add={'id':1,'name':'大数据工程师','address':'上海','pu_time':'2016.1
 job_provide.append(job_add)
 
 school_dis = {'id':1,'name':'清华大学','desc':'中国TOP3大学!',\
-'stu_count':'1200','res_time':'2016年12月22日'}
+'stu_count':'1200','res_time':'2016年12月22日','img':'3'}

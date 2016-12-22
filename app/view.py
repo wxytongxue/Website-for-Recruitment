@@ -99,6 +99,9 @@ def school_t(id):
 def company_t(id):
     return render_template('company.html',company_dis=company_dis,job_provide=job_provide)
 
+@main.route('/info/<int:id>/',methods=['GET','POST'])
+def info(id):
+    return render_template('info.html')
 
 
 
