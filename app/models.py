@@ -20,19 +20,23 @@ class User(db.Model):
 class Student(db.Model):
     __tablename__='student'
     id = db.Column(db.Integer,primary_key=True,autoincrement=True)
-    ID = db.Column(db.Integer,unique=True)   #学号
+    stu_id = db.Column(db.Integer,unique=True)   #学号
     name = db.Column(db.String(128))
     school = db.Column(db.String(128))
     school_id = db.Column(db.Integer)
     grade = db.Column(db.String(128))
     job = db.Column(db.String(128))
-    def __init__(self,ID,name,school,school_id,grade,job):
+    res_time = db.Column(db.Date)
+    user_id = db.Column(db.Integer,db.ForeignKey('users.id'))
+    def __init__(self,ID,name,school,school_id,grade,job,res_time,user_id):
         self.ID=ID
         self.name=name
         self.school=school
         self.school_id=school_id
         self.grade=grade
         self.job=job
+        self.res_time=res_time
+        self.user_id=user_id
     def __repr__(self):
         return '<User %r>' % self.name
 
@@ -43,25 +47,34 @@ class School(db.Model):
     address = db.Column(db.String(255))
     desc = db.Column(db.Text)
     gover_id = db.Column(db.Integer)
-    def __init__(self,name,address,desc,gover_id):
+    img = db.Column(db.Integer)
+    res_time = db.Column(db.Date)
+    user_id = db.Column(db.Integer,db.ForeignKey('users.id'))
+    def __init__(self,name,address,desc,gover_id,img,res_time,user_id):
         self.name=name
         self.address=address
         self.desc=desc
         self.gover_id=gover_id
+        self.img=img
+        self.res_time=res_time
+        self.user_id=user_id
     def __repr__(self):
         return '<User %r>' % self.name
 
 class Company(db.Model):
     __tablename__='company'
     id = db.Column(db.Integer,primary_key=True,autoincrement=True)
-    name = Column(db.String(128))
-    category = Column(db.String(128))
+    name = db.Column(db.String(128))
+    category = db.Column(db.String(128))
     nature = db.Column(db.String(128))
     count = db.Column(db.Integer)
     address = db.Column(db.String(255))
     desc = db.Column(db.Text)
     link = db.Column(db.String(255))
-    __init__(self,name,category,nature,count,address,desc,link):
+    img = db.Column(db.Integer)
+    res_time = db.Column(db.Date)
+    user_id = db.Column(db.Integer,db.ForeignKey('users.id'))
+    def __init__(self,name,category,nature,count,address,desc,link,img,res_time,user_id):
         self.name=name
         self.category=category
         self.nature=nature
@@ -69,15 +82,47 @@ class Company(db.Model):
         self.address=address
         self.defc=defc
         self.link=link
+        self.img=img
+        self.res_time=res_time
+        self.user_id=user_id
     def __repr__(self):
         return '<User %r>' % self.name
 class Goverment(db.Model):
     __tablename__='goverment'
     id = db.Column(db.Integer,primary_key=True,autoincrement=True)
-    name = Column(db.String(128))
+    name = db.Column(db.String(128))
     address = db.Column(db.String(255))
-    __init__(self,name,address):
+    img = db.Column(db.Integer)
+    res_time = db.Column(db.Date)
+    user_id = db.Column(db.Integer,db.ForeignKey('users.id'))
+    def __init__(self,name,address,img,res_time,user_id):
         self.name=name
         self.address=address
+        self.img=img
+        self.res_time
+        self.user_id=user_id
+    def __repr__(self):
+        return '<User %r>' % self.name
+
+class Job(db.Model):
+    __tablename__='job'
+    id = db.Column(db.Integer,primary_key=True,autoincrement=True)
+    name = db.Column(db.String(128))
+    address = db.Column(db.String(255))
+    salary = db.Column(db.Float)
+    record = db.Column(db.String(128))
+    desc = db.Column(db.Text)
+    experience = db.Column(db.String(128))
+    nature = db.Column(db.String(128))
+    pu_time = db.Column(db.Date)
+    def __init__(self,name,address,salary,record,desc,experience,nature,pu_time):
+        self.name=name
+        self.address=address
+        self.salary=salary
+        self.record=record
+        self.desc=desc
+        self.experience=experience
+        self.nature=nature
+        self.pu_time=pu_time
     def __repr__(self):
         return '<User %r>' % self.name

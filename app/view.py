@@ -3,7 +3,7 @@
 from flask import Flask,url_for,render_template,request,Blueprint,flash,session,redirect,g
 from db import *
 from form import *
-from models import User,Item,Category
+from models import User,Student,School,Company,Goverment,Job
 from ext import db
 
 main = Blueprint('main',__name__)
