@@ -31,7 +31,7 @@ def login():
 def register():
     form = RegisterForm()
     if request.method=='POST' and form.validate_on_submit():
-        user=User(form.name.data,form.email.data,form.password.data)
+        user=User(form.name.data,form.email.data,form.password.data,1)
         db.session.add(user)
         db.session.commit()
         return render_template('info.html')
@@ -156,11 +156,11 @@ def edit_info():
     print 'ss'
     return render_template('index.html',employment=employment,company=company,school=school);
 
-# @main.route('/test/',methods=['GET','POST'])
-# def Test():
-#     return render_template('test.html')
-#
-# @main.route('/test-t/',methods=['GET','POST'])
-# def Test_t():
-#     print 'test'
-#     return render_template('edit.html')
+@main.route('/test/',methods=['GET','POST'])
+def Test():
+    return render_template('test.html')
+
+@main.route('/test-t/',methods=['GET','POST'])
+def Test_t():
+    print 'test'
+    return render_template('edit.html')

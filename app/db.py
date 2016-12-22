@@ -1,16 +1,32 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+# from models import User,Student,School,Company,Goverment,Job
+
+
 employment = []
 company = []
 school = []
 
+# for i in range(9):
+#     temp=[]
+#     job= Job.query.get_or_404(i+1)
+#     temp.append(job)
+#     employment.append(temp)
+
 for i in range(3):
     temp=[]
+
     di={'job_name':"Java 工程师",'job_desc':"1、 参与项目需求分析，负责功能模块详细设计，包括软件架构设计；2、 编写符合软件工程规范的系统分析文档及详细设计文档；3、 搭建系统服务器环境，完成系统框架和核心代码",'job_link': "www.baidu.com"}
     for j in range(3):
         temp.append(di)
     employment.append(temp)
+
+# for i in range(9):
+#     temp=[]
+#     company_t= Company.query.get_or_404(i+1)
+#     temp.append(company_t)
+#     company.append(temp)
 
 for i in range(3):
     temp=[]
@@ -18,6 +34,12 @@ for i in range(3):
     for j in range(3):
         temp.append(di)
     company.append(temp)
+
+# for i in range(9):
+#     temp=[]
+#     school_t= School.query.get_or_404(i+1)
+#     temp.append(school_t)
+#     school.append(temp)
 
 for i in range(3):
     temp=[]
@@ -62,7 +84,7 @@ companydesc={'id':'1','name':'快看公司','img':'2','category':'移动互联�
 
 
 company_dis={'id':1,'name':'快看','desc':'企业移动互联领头羊，新三板上市公司，给予员工期权激励的创新潜力股',\
-'job_count':'55','res_time':'2016年12月22日','img':'2'}
+'job_count':'1','res_time':'2016年12月22日','img':'2'}
 
 job_provide = []
 job_add={'id':1,'name':'大数据工程师','address':'上海','pu_time':'2016.12.21','salary':'30k-40k','experience':'3年-5年',\
