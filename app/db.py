@@ -68,3 +68,6 @@ job_provide = []
 job_add={'id':1,'name':'大数据工程师','address':'上海','pu_time':'2016.12.21','salary':'30k-40k','experience':'3年-5年',\
 'record':'本科','nature':'全职','link':1}
 job_provide.append(job_add)
+
+school_dis = {'id':1,'name':'清华大学','desc':'中国TOP3大学!',\
+'stu_count':'1200','res_time':'2016年12月22日'}
