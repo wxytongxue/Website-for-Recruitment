@@ -21,6 +21,7 @@ def login():
             session['user']=u.username
             session['news']=2
             session['count']=[2,1,2,3,4,5,6,7]
+            session['role']=1
             return render_template('index.html',employment=employment,company=company,school=school)
 
     session['login']=False
@@ -29,11 +30,11 @@ def login():
 @main.route('/register/', methods=['GET', 'POST'])
 def register():
     form = RegisterForm()
-    flash(u'登录成功，欢迎回来!')
     if request.method=='POST' and form.validate_on_submit():
         user=User(form.name.data,form.email.data,form.password.data)
         db.session.add(user)
         db.session.commit()
+        return render_template('info.html')
     return render_template('register.html', form=form)
 @main.route('/quit/')
 def quit():
@@ -102,7 +103,9 @@ def company_t(id):
 @main.route('/info/<int:id>/',methods=['GET','POST'])
 def info(id):
     return render_template('info.html')
-
+@main.route('/edit/',methods=['GET','POST'])
+def Edit():
+    return render_template('edit.html')
 
 
 #the view for item
@@ -137,3 +140,27 @@ def read_done(id):
 def han_in(id):
     g.toast=True
     return render_template('job.html',jobdesc=jobdesc,companydesc=companydesc)
+
+@main.route('/hand-info/',methods=['GET','POST'])
+def hand_info():
+    return render_template('index.html',employment=employment,company=company,school=school);
+
+@main.route('/edit-info/',methods=['GET','POST'])
+def edit_info():
+    name=request.form.get('name')
+    print name
+    if name is None:
+        g.empty=True
+        return render_template('edit.html')
+    g.empty=False
+    print 'ss'
+    return render_template('index.html',employment=employment,company=company,school=school);
+
+# @main.route('/test/',methods=['GET','POST'])
+# def Test():
+#     return render_template('test.html')
+#
+# @main.route('/test-t/',methods=['GET','POST'])
+# def Test_t():
+#     print 'test'
+#     return render_template('edit.html')

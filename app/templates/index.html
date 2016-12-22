@@ -1,4 +1,9 @@
 {% extends "base.html" %} {% block body %} {{super()}}
+{% if not g.empty %}
+<script type="text/javascript">
+    Materialize.toast('修改成功!', 4000)
+</script>
+{% endif %}
 <div class="slider">
     <ul class="slides">
         <li>

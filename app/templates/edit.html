@@ -3,47 +3,23 @@
     <div class="col s7 m8 l9">
         <div class="row center-align">
             <br><br>
-            <h4>信息完善</h4>
-        </div>
-        <div class="row">
-            <div class="col offset-s3">
-                <span>请选择用户角色:</span>
-            </div>
-            <div class="col">
-                <form action="#">
-                    <span>
-        <input name="group1" type="radio" id="role1" value='1'/>
-        <label for="role1">毕业生</label>
-      </span>
-                    <span>
-        <input name="group1" type="radio" id="role2" value='2'/>
-        <label for="role2">高校</label>
-      </span>
-                    <span>
-        <input name="group1" type="radio" id="role3" value='3'/>
-        <label for="role3">用人单位</label>
-      </span>
-                    <span>
-        <input name="group1" type="radio" id="role4" value='4'/>
-        <label for="role4">政府单位</label>
-      </span>
-                </form>
-
-            </div>
+            <h4>信息修改</h4>
         </div>
         <!-- input info -->
         <!-- student -->
-        <div class="row input1" style="display:none;">
+        {% if session.role == 1 %}
+        <form action="{{ url_for('main.edit_info') }}" method="POST">
+        <div class="row input1">
             <div class="col offset-s3 s6">
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="name" type="text" class="validate">
+                        <input id="name" type="text" class="validate" name="name">
                         <label for="name">Name</label>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row input2" style="display:none;">
+        <div class="row input2">
             <div class="col offset-s3 s6">
                 <div class="row">
                     <div class="input-field col s12">
@@ -53,7 +29,7 @@
                 </div>
             </div>
         </div>
-        <div class="row input3" style="display:none;">
+        <div class="row input3">
             <div class="col offset-s3 s6">
                 <div class="row">
                     <div class="input-field col s12">
@@ -63,7 +39,7 @@
                 </div>
             </div>
         </div>
-        <div class="row input4" style="display:none;">
+        <div class="row input4" >
             <div class="col offset-s3 s6">
                 <div class="row">
                     <div class="input-field col s12">
@@ -73,7 +49,7 @@
                 </div>
             </div>
         </div>
-        <div class="row input5" style="display:none;">
+        <div class="row input5" >
             <div class="col offset-s3 s6">
                 <div class="row">
                     <div class="input-field col s12">
@@ -84,8 +60,10 @@
             </div>
         </div>
 
+{% endif %}
         <!-- school -->
-        <div class="row input6" style="display:none;">
+{% if session.role == 2 %}
+        <div class="row input6" >
             <div class="col offset-s3 s6">
                 <div class="row">
                     <div class="input-field col s12">
@@ -95,7 +73,7 @@
                 </div>
             </div>
         </div>
-        <div class="row input7" style="display:none;">
+        <div class="row input7" >
             <div class="col offset-s3 s6">
                 <div class="row">
                     <div class="input-field col s12">
@@ -105,7 +83,7 @@
                 </div>
             </div>
         </div>
-        <div class="row input8" style="display:none;">
+        <div class="row input8" >
             <div class="col offset-s3 s6">
                 <div class="row">
                     <div class="input-field col s12">
@@ -115,8 +93,10 @@
                 </div>
             </div>
         </div>
+{% endif %}
         <!-- company -->
-        <div class="row input9" style="display:none;">
+{% if session.role ==3 %}
+        <div class="row input9" >
             <div class="col offset-s3 s6">
                 <div class="row">
                     <div class="input-field col s12">
@@ -126,7 +106,7 @@
                 </div>
             </div>
         </div>
-        <div class="row input9" style="display:none;">
+        <div class="row input9" >
             <div class="col offset-s3 s6">
                 <div class="row">
                     <div class="input-field col s12">
@@ -136,7 +116,7 @@
                 </div>
             </div>
         </div>
-        <div class="row input10" style="display:none;">
+        <div class="row input10" >
             <div class="col offset-s3 s6">
                 <div class="row">
                     <div class="input-field col s12">
@@ -146,7 +126,7 @@
                 </div>
             </div>
         </div>
-        <div class="row input11" style="display:none;">
+        <div class="row input11" >
             <div class="col offset-s3 s6">
                 <div class="row">
                     <div class="input-field col s12">
@@ -156,7 +136,7 @@
                 </div>
             </div>
         </div>
-        <div class="row input12" style="display:none;">
+        <div class="row input12" >
             <div class="col offset-s3 s6">
                 <div class="row">
                     <div class="input-field col s12">
@@ -167,7 +147,7 @@
             </div>
         </div>
 
-        <div class="row input13" style="display:none;">
+        <div class="row input13" >
             <div class="col offset-s3 s6">
                 <div class="row">
                     <div class="input-field col s12">
@@ -177,9 +157,10 @@
                 </div>
             </div>
         </div>
-
+{% endif %}
         <!-- goverment -->
-        <div class="row input14" style="display:none;">
+{% if session.role == 4 %}
+        <div class="row input14" >
             <div class="col offset-s3 s6">
                 <div class="row">
                     <div class="input-field col s12">
@@ -189,7 +170,7 @@
                 </div>
             </div>
         </div>
-        <div class="row input15" style="display:none;">
+        <div class="row input15" >
             <div class="col offset-s3 s6">
                 <div class="row">
                     <div class="input-field col s12">
@@ -199,79 +180,18 @@
                 </div>
             </div>
         </div>
-    <div class="row hand-info" style="display:none;">
+{% endif %}
+    <div class="row hand-info">
       <div class="col s7">
-          <a href="/hand-info/" class="btn green right" id="hand-info">提交<i class="material-icons right">send</i></a>
+          <a href="/edit-info/" class="btn green right" id="hand-info">提交<i class="material-icons right">send</i></a>
       </div>
     </div>
+    </form>
     </div>
     <div class="col s5 m4 l3">
 
     </div>
 </div>
-<script type="text/javascript">
-    $(function() {
-        $(":radio").click(function() {
-            if ($(this).val() == '1') {
-              $(".hand-info").show();
-                for (i = 1; i < 6; i++) {
-                    $(".input" + i).show();
-                }
-                for (i = 6; i < 9; i++) {
-                    $(".input" + i).hide();
-                }
-                for (i = 9; i < 14; i++) {
-                    $(".input" + i).hide();
-                }
-                for (i = 14; i < 16; i++) {
-                    $(".input" + i).hide();
-                }
+<br><br><br><br><br><br><br><br><br><br><br>
 
-            } else if ($(this).val() == '2') {
-              $(".hand-info").show();
-                for (i = 6; i < 9; i++) {
-                    $(".input" + i).show();
-                }
-                for (i = 1; i < 6; i++) {
-                    $(".input" + i).hide();
-                }
-                for (i = 9; i < 14; i++) {
-                    $(".input" + i).hide();
-                }
-                for (i = 14; i < 16; i++) {
-                    $(".input" + i).hide();
-                }
-            } else if ($(this).val() == '3') {
-              $(".hand-info").show();
-                for (i = 9; i < 14; i++) {
-                    $(".input" + i).show();
-                }
-                for (i = 6; i < 9; i++) {
-                    $(".input" + i).hide();
-                }
-                for (i = 1; i < 6; i++) {
-                    $(".input" + i).hide();
-                }
-                for (i = 14; i < 16; i++) {
-                    $(".input" + i).hide();
-                }
-            } else if ($(this).val() == '4') {
-              $(".hand-info").show();
-              for (i = 14; i < 16; i++) {
-                  $(".input" + i).show();
-              }
-              for (i = 1; i < 6; i++) {
-                  $(".input" + i).hide();
-              }
-              for (i = 6; i < 9; i++) {
-                  $(".input" + i).hide();
-              }
-              for (i = 9; i < 14; i++) {
-                  $(".input" + i).hide();
-              }
-            }
-
-        });
-    });
-</script>
-<br><br><br><br><br><br><br><br><br><br><br> {% endblock %}
+{% endblock %}
