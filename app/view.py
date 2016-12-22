@@ -97,7 +97,8 @@ def school_t(id):
 
 @main.route('/company/<int:id>/',methods=['GET','POST'])
 def company_t(id):
-    return render_template('company.html')
+    return render_template('company.html',company_dis=company_dis,job_provide=job_provide)
+
 
 
 

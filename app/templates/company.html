@@ -1,0 +1,61 @@
+{% extends "base.html" %} {% block body %}
+<div class="row">
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="col offset-s2">
+      <img src="../../static/images/co_2.jpg" alt="" style="width:140px;height:140px;">
+    </div>
+    <div class="col " style="width:50%;height:150px;background-color:#ebf0ef;">
+        <div class="row">
+          <br>
+          <div class="col">
+            <span style="font-size:20px;font-weight:bold;">{{company_dis.name}}</span>
+          </div>
+          <div class="col">
+            <div  style="width:100px;height:35px; background-color:#1de9b6;-moz-border-radius: 15px;-webkit-border-radius: 15px;border-radius:15px;">
+              <a href="#" class="waves-effect waves-light center-align" style="color:#fff;margin:5px;">
+                  <i class="material-icons left">done</i>已认证
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <span>{{company_dis.desc}}</span>
+        </div>
+        <div class="row">
+          <span>发布职位:</span>
+          <span style="color:#1de9b6 ">{{company_dis.job_count}}个</span>
+          <span>&nbsp;&nbsp;注册时间:</span>
+          <span style="color:#1de9b6 ">{{company_dis.res_time}}</span>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+{% for job in job_provide %}
+<div class="row">
+  <div class="col offset-s3">
+    <div style="width:600px;height:110px;border:1px solid #ededed;">
+      <div class="row">
+        <div class="col s5">
+          <h5><a href="/job/{{job.link}}" style="color:#1de9b6;">{{job.name}}[{{job.address}}]</a></h5>
+        </div>
+        <div class="col s4 right">
+          <h6 style="color:#999;padding:10px 0 0 0;">{{job.pu_time}}发布</h6>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s2">
+          <span style="color:#fd5f39">{{job.salary}}</span>
+        </div>
+        <div class="col s5">
+            <span>经验:{{job.experience}}/{{job.record}}/{{job.nature}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
+{% endblock %}
